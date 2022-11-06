@@ -49,14 +49,21 @@ while True:
 		pass
     
 	# take picture with camera
-	camera.annotate_text = "{} CO2: {} ppm".format(
-		now.strftime("%d.%m.%Y %H:%M:%S"), co2_value)
+	#camera.annotate_text = "{} CO2: {} ppm".format(
+	#	now.strftime("%d.%m.%Y %H:%M:%S"), co2_value)
 
 	filename = os.path.join(output_directory, "{}.jpg".format(now.timestamp()))
 	camera.capture(filename)
 
 	# determine brihgtness
 	brightness = get_brightness(filename)
+	
+	# remove image
+	try:
+		os.remove(filename)
+	except:
+		pass
+	
 
 	# take video with camera
 	#filename = os.path.join(output_directory, "video.h264")

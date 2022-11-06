@@ -25,7 +25,7 @@ def turn_close(n_rotations=20):
 		
 		# fast start
 		n_steps = 32*200*(n_rotations-3)
-		duration = 1
+		duration = 0.5
 		
 		tstart = timeit.default_timer()
 		Motor1.TurnStep(Dir='forward', steps=int(n_steps), stepdelay=duration/c/n_steps)
@@ -34,7 +34,7 @@ def turn_close(n_rotations=20):
 		
 		# slow end
 		n_steps = 32*200*3
-		duration = 10
+		duration = 5
 		
 		tstart = timeit.default_timer()
 		Motor1.TurnStep(Dir='forward', steps=int(n_steps), stepdelay=duration/c/n_steps)
@@ -58,7 +58,7 @@ def turn_open(n_rotations=20):
 	
 		# slow start
 		n_steps = 32*200*3
-		duration = 10
+		duration = 5
 		
 		tstart = timeit.default_timer()
 		Motor1.TurnStep(Dir='backward', steps=int(n_steps), stepdelay=duration/c/n_steps)
@@ -67,7 +67,7 @@ def turn_open(n_rotations=20):
 		
 		# fast end
 		n_steps = 32*200*(n_rotations-3)
-		duration = 1
+		duration = 0.5
 		
 		tstart = timeit.default_timer()
 		Motor1.TurnStep(Dir='backward', steps=int(n_steps), stepdelay=duration/c/n_steps)
