@@ -529,3 +529,7 @@
 10:31:04 1372.0 ppm (-55), brightness: 0.652, window is open, command close
 10:32:04 1394.0 ppm (+22), brightness: 0.680, window is closed, command disable
 21:00:40 1511.0 ppm (-489), brightness: 0.620, window is closed, command disable
+21:35:12 1896.0 ppm (+7), brightness: 0.517, window is closed, command open_shutter
+21:40:43 1990.0 ppm (+42), brightness: 0.511, window is closed, command close_shutter
+21:41:43 2033.0 ppm (+43), brightness: 0.513, window is closed -> open window
+21:42:25 2073.0 ppm (+73), brightness: 0.475, window is closed -> open window

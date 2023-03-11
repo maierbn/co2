@@ -133,6 +133,7 @@ while True:
         file.write(f"{datetime.datetime.fromtimestamp(t).strftime('%H:%M:%S')} " \
           f"{co2_value} ppm ({increment:+0.0f}), brightness: {brightness:.3f}, window is {state} -> open window\n")
       
+      shutter.open_shutter()
       motor.turn_open()
       is_open = True
     
@@ -144,5 +145,15 @@ while True:
       with open(log_filename, "a") as file:
         file.write(f"{datetime.datetime.fromtimestamp(t).strftime('%H:%M:%S')} " \
           f"{co2_value} ppm ({increment:+0.0f}), brightness: {brightness:.3f}, window is {state} -> close window\n")
+      shutter.close_shutter()
       motor.turn_close()
       is_open = False
+
+  # open shutter at 9:45am
+  if now.hour == 9 and now.minute == 45:
+    shutter.open_shutter()
+
+  # close shutter at 20:00
+  if now.hour == 20 and now.minute == 0:
+    shutter.close_shutter()
+
