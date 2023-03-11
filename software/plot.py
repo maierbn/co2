@@ -32,6 +32,8 @@ ax = fig.add_subplot(111)
 
 # read values
 data = np.genfromtxt(long_log_filename, delimiter=";", converters={3: lambda s: 1.0 if "open" in str(s) else 0.0})
+data = np.array([d for d in data if not np.isnan(d[0])])
+
 t_list = [datetime.datetime.fromtimestamp(d) for d in data[:,0]]
 #t_list = mdates.date2num(t_list)
 #t_list = data[:,0]
