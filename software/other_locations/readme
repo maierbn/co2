@@ -1,0 +1,11 @@
+/usr/lib/cgi-bin/*
+/var/www/html/index.html
+
+
+user crontab:
+
+PATH=/bin:/usr/bin:/usr/local/bin
+1 10 * * * /home/pi/co2/plot.sh
+@reboot cd /home/pi/co2/software; python capture.py
+@reboot cd /home/pi/co2/software; python window.py
+
