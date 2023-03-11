@@ -528,3 +528,4 @@
 10:27:04 1458.0 ppm (+15), brightness: 0.593, window is closed, command open
 10:31:04 1372.0 ppm (-55), brightness: 0.652, window is open, command close
 10:32:04 1394.0 ppm (+22), brightness: 0.680, window is closed, command disable
+21:00:40 1511.0 ppm (-489), brightness: 0.620, window is closed, command disable

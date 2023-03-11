@@ -2,6 +2,7 @@
 
 import time
 import motor
+import shutter
 import datetime
 import traceback
 import subprocess
@@ -108,6 +109,12 @@ while True:
     elif command == "restart":
       subprocess.run("reboot", shell=True)
       #quit()
+   
+    elif command == "open_shutter":
+      shutter.open_shutter()
+
+    elif command == "close_shutter":
+      shutter.close_shutter()
 
   if forced_open or forced_close or not enabled:
     continue   
