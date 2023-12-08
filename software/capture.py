@@ -26,16 +26,17 @@ import cozir
 co2_sensor = cozir.Cozir('/dev/ttyUSB0')
 
 # camera
-import picamera
-camera = picamera.PiCamera()
-camera.resolution = (1920,1080)
-camera.exposure_mode = "night"
-camera.awb_mode = "shade"
-camera.image_effect = "none"
-camera.contrast =    50  # 0 to 100
-camera.brightness =  70 # 0 to 100
-camera.annotate_background = picamera.Color('white')
-camera.annotate_foreground = picamera.Color('black')
+if False:
+	import picamera
+	camera = picamera.PiCamera()
+	camera.resolution = (1920,1080)
+	camera.exposure_mode = "night"
+	camera.awb_mode = "shade"
+	camera.image_effect = "none"
+	camera.contrast =    50  # 0 to 100
+	camera.brightness =  70 # 0 to 100
+	camera.annotate_background = picamera.Color('white')
+	camera.annotate_foreground = picamera.Color('black')
 
 while True:
 	
@@ -52,11 +53,12 @@ while True:
 	#camera.annotate_text = "{} CO2: {} ppm".format(
 	#	now.strftime("%d.%m.%Y %H:%M:%S"), co2_value)
 
-	filename = os.path.join(output_directory, "{}.jpg".format(now.timestamp()))
-	camera.capture(filename)
+	#filename = os.path.join(output_directory, "{}.jpg".format(now.timestamp()))
+	#camera.capture(filename)
 
 	# determine brihgtness
-	brightness = get_brightness(filename)
+	#brightness = get_brightness(filename)
+	brightness = 0
 	
 	# remove image
 	try:

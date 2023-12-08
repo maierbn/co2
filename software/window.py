@@ -24,9 +24,9 @@ enabled = True
 while True:
   
   time.sleep(30)
-  upper_threshold = 2000      # if co2 is larger, open window
+  upper_threshold = 1900      # if co2 is larger, open window
   lower_threshold = 1350      # if co2 is lower, close window
-  preliminary_threshold = 1700    # if co2 is higher at 5:00 am, open window (until max. 5:45 am)
+  preliminary_threshold = 1900    # if co2 is higher at 5:00 am, open window (until max. 5:45 am)
   
   if forced_end_time < datetime.datetime.now():
     forced_open = False
@@ -133,8 +133,14 @@ while True:
         file.write(f"{datetime.datetime.fromtimestamp(t).strftime('%H:%M:%S')} " \
           f"{co2_value} ppm ({increment:+0.0f}), brightness: {brightness:.3f}, window is {state} -> open window\n")
       
-      shutter.open_shutter()
+      #shutter.open_shutter()
       motor.turn_open()
+      time.sleep(10)
+      shutter.open_shutter()
+      #time.sleep(30)
+      #shutter.open_shutter()
+      #time.sleep(30)
+      #shutter.open_shutter()
       is_open = True
     
   # handle cases when to close the window
@@ -145,9 +151,17 @@ while True:
       with open(log_filename, "a") as file:
         file.write(f"{datetime.datetime.fromtimestamp(t).strftime('%H:%M:%S')} " \
           f"{co2_value} ppm ({increment:+0.0f}), brightness: {brightness:.3f}, window is {state} -> close window\n")
-      shutter.close_shutter()
+      #shutter.close_shutter()
       motor.turn_close()
+      time.sleep(10)
+      shutter.close_shutter()
+      #time.sleep(30)
+      #shutter.close_shutter()
       is_open = False
+
+  else:
+    if now.hour > 20 or now.hour < 6:
+      shutter.close_shutter()
 
   # open shutter at 9:45am
   if now.hour == 9 and now.minute == 45:
